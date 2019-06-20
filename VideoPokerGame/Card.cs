@@ -29,7 +29,7 @@ namespace VideoPokerGame
 
         override public String ToString()
         {
-            return Enum.GetName(typeof(Rank), CardRank) + " of " + Enum.GetName(typeof(Suit), CardSuit);
+            return $"{Enum.GetName(typeof(Rank), CardRank)} of {Enum.GetName(typeof(Suit), CardSuit)}";
         }
 
     }

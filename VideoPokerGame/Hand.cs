@@ -91,7 +91,7 @@ namespace VideoPokerGame
                 return;
             }
 
-            if (CheckIfJacksOrBatter())
+            if (CheckIfJacksOrBetter())
             {
                 Prize = 1;
                 return;
@@ -100,7 +100,7 @@ namespace VideoPokerGame
             Prize = 0;
         }
 
-        private Boolean CheckIfJacksOrBatter()
+        private bool CheckIfJacksOrBetter()
         {
             var queryAce = DealtCards.Select(n => n)
                                        .Where(n => n.CardRank == 1)
@@ -129,7 +129,7 @@ namespace VideoPokerGame
             return false;
         }
 
-        private Boolean CheckIfTwoPairs()
+        private bool CheckIfTwoPairs()
         {
             List<int> listOfCards = new List<int>();
             int numOfPairs = 0;
@@ -144,7 +144,7 @@ namespace VideoPokerGame
             return numOfPairs == 2 ? true : false;
         }
 
-        private Boolean CheckIfThreeOfAKind()
+        private bool CheckIfThreeOfAKind()
         {
             var groupedCards = DealtCards.GroupBy(n => n.CardRank);
             List<int> numOfElements = new List<int>();
@@ -158,7 +158,7 @@ namespace VideoPokerGame
             return false;
         }
 
-        private Boolean CheckIfStraight()
+        private bool CheckIfStraight()
         {
             var sortedCards = DealtCards.OrderBy(o => o.CardRank).ToList();
 
@@ -175,7 +175,7 @@ namespace VideoPokerGame
             return true;
         }
 
-        private Boolean CheckIfFlush()
+        private bool CheckIfFlush()
         {
             int suitToCheck = DealtCards[0].CardSuit;
 
@@ -186,7 +186,7 @@ namespace VideoPokerGame
             return true;
         }
 
-        private Boolean CheckIfFullHouse()
+        private bool CheckIfFullHouse()
         {
             var groupedCards = DealtCards.GroupBy(n => n.CardRank);
             List<int> numOfElements = new List<int>();
@@ -200,7 +200,7 @@ namespace VideoPokerGame
                 return false;
         }
 
-        private Boolean CheckIfFourOfAKind()
+        private bool CheckIfFourOfAKind()
         {
             var groupedCards = DealtCards.GroupBy(n => n.CardRank);
             List<int> numOfElements = new List<int>();
@@ -214,7 +214,7 @@ namespace VideoPokerGame
                 return false;
         }
 
-        private Boolean CheckIfStraightFlush()
+        private bool CheckIfStraightFlush()
         {
             var sortedCards = DealtCards.OrderBy(o => o.CardRank).ToList();
 
@@ -232,7 +232,7 @@ namespace VideoPokerGame
             return true;
         }
 
-        private Boolean CheckIfRoyalFlush()
+        private bool CheckIfRoyalFlush()
         {
             var sortedCards = DealtCards.OrderBy(o => o.CardRank).ToList();
 

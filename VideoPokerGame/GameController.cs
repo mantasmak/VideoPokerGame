@@ -36,7 +36,7 @@ namespace VideoPokerGame
 
         private void LoopGame()
         {
-            Boolean correctInput = false;
+            bool correctInput = false;
 
             while (correctInput == false)
             {

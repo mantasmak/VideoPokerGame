@@ -50,12 +50,17 @@ namespace VideoPokerGame
             String answer = Console.ReadLine();
             int parsedAnswer;
 
-            Boolean isNumeric = Int32.TryParse(answer, out parsedAnswer);
-
-            if (parsedAnswer > 0 && parsedAnswer < 6 && isNumeric)
-                return parsedAnswer;
+            if (Int32.TryParse(answer, out parsedAnswer))
+            {
+                if (parsedAnswer > 0 && parsedAnswer < 6)
+                    return parsedAnswer;
+                else
+                    return 0;
+            }
             else
+            {
                 return 0;
+            }
         }
 
         public void AskWhichCardToDiscard()
