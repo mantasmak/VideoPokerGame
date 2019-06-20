@@ -19,12 +19,12 @@ namespace VideoPokerGame
             if (rank >= 1 && rank <= 13)
                 CardRank = rank;
             else
-                Console.WriteLine("Wrong rank value.");
+                throw new WrongCardRankException(rank);
 
             if (suit >= 0 && suit <= 3)
                 CardSuit = suit;
             else
-                Console.WriteLine("Wrong suit value.");
+                throw new WrongCardSuitException(suit);
         }
 
         override public String ToString()
